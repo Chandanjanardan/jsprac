@@ -13,5 +13,5 @@ const Person = function (name,dob,occupation){
 
 
 const chandy = new Person("chandy",1996,"SDE")
-console.log(chandy)
 chandy.calculateAge()
+console.log(Person.prototype.name)

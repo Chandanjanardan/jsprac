@@ -3,9 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Text Reflection on Image</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .disk-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: url('path-to-your-image.jpg') no-repeat center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .text {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: bold;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .text-reflection {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translateX(-50%) rotateX(180deg) scaleY(-1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 36px;
+            font-weight: bold;
+            white-space: nowrap;
+            z-index: 1;
+            opacity: 0.4;
+            filter: blur(2px);
+        }
+
+        .text-reflection::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            z-index: 2;
+        }
+    </style>
 </head>
 <body>
-    <script  src="./callback.js"></script>
+    <div class="container">
+        <div class="disk-image"></div>
+        <div class="text">Your Text</div>
+        <div class="text-reflection">Your Text</div>
+    </div>
+    <script src="./dsa.js"></script>
 </body>
 </html>
